@@ -1,56 +1,59 @@
-#include <iostream> 
+#include <iostream>
 
 struct TwoInts
 {
-    int a;
-    int b;
+  int a;
+  int b;
 };
 
 struct StructWithArray
 {
-    int arr[4];
-    int* someNumber;
+  int arr[4];
+  int* someNumber;
 };
 
 int main()
 {
-    TwoInts i2 = { };
-    i2.a = 5;
-    i2.b = 7;
+  TwoInts i2 = { };
+  i2.a = 5;
+  i2.b = 7;
 
-    std::cout << i2.a << std::endl;  // Âûâîä çíà÷åíèÿ 
-    std::cout << i2.b << std::endl;  // Âûâîä çíà÷åíèÿ
+  std::cout << i2.a << std::endl; // Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ñ 5
+  std::cout << i2.b << std::endl; // Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ñ 7
 
-    StructWithArray s = { };
-    s.arr[0] = 10;
+  StructWithArray s = { };
+  s.arr[0] = 10;
 
-    StructWithArray s1 = { };
-    s1.arr[0] = 15;
+  StructWithArray s1 = { };
+  s1.arr[0] = 15;
 
-    StructWithArray* sPointer = &s;
-    sPointer->arr[0] = 20;
+  StructWithArray* sPointer = &s;
+  sPointer->arr[0] = 20;
 
-    std::cout << s.arr[0] << std::endl;  // Âûâîä çíà÷åíèÿ ïåğâîãî ıëåìåíòà ìàññèâà arr â ñòğóêòóğå s.
-    s.arr[0] = 25;
-    std::cout << s.arr[0] << std::endl;  // Âûâîä èçìåíåííîãî çíà÷åíèÿ ïåğâîãî ıëåìåíòà ìàññèâà arr â ñòğóêòóğå s.
-    sPointer->arr[0] = 30;
-    std::cout << s.arr[0] << std::endl;  // Âûâîä çíà÷åíèÿ ïåğâîãî ıëåìåíòà ìàññèâà arr â ñòğóêòóğå s ÷åğåç óêàçàòåëü.
+  std::cout << s.arr[0] << std::endl; // Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ñ 20
+  s.arr[0] = 25;
+  std::cout << s.arr[0] << std::endl; // Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ñ 25
+  sPointer->arr[0] = 30;
+  std::cout << s.arr[0] << std::endl; // Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ñ 30
 
-    sPointer = &s1;
-    sPointer->arr[0] = 35;
-    std::cout << s.arr[0] << std::endl;  // Âûâîä çíà÷åíèÿ ïåğâîãî ıëåìåíòà ìàññèâà arr â ñòğóêòóğå s.
-    std::cout << s1.arr[0] << std::endl;  // Âûâîä çíà÷åíèÿ ïåğâîãî ıëåìåíòà ìàññèâà arr â ñòğóêòóğå s1.
+  sPointer = &s1;
+  sPointer->arr[0] = 35;
+  std::cout << s.arr[0] << std::endl; // Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ñ 35
+  std::cout << s1.arr[0] << std::endl; // Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ñ 35
 
-    StructWithArray structArray[2] = { };
-    structArray[0].arr[3] = 77;
-    structArray[1].someNumber = &structArray[0].arr[3];
+  StructWithArray structArray[2] = { };
+  structArray[0].arr[3] = 77;
+  structArray[1].someNumber = &structArray[0].arr[3];
 
-    sPointer = &s;
-    int* pointer = &sPointer->arr[3];
-    s.arr[3] = 72;
-    std::cout << *pointer; 
+  sPointer = &s;
+  int* pointer = &sPointer->arr[3];
+  s.arr[3] = 72;
+  std::cout << *pointer; // Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ñ 72
 
-    StructWithArray memory;
-    memset(&memory, 0, sizeof(StructWithArray));
-    return 0;
+  StructWithArray memory;
+  memset(&memory, 0, sizeof(StructWithArray));
+  return 0;
 }
+ĞŸĞµÑ€Ğ²Ğ°Ñ Ñ‡Ğ°ÑÑ‚ÑŒ ĞºĞ¾Ğ´Ğ° - Ğ¾Ğ±ÑŠÑĞ²Ğ»ĞµĞ½Ğ¸Ğµ Ğ¸ Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ ÑÑ‚Ñ€ÑƒĞºÑ‚ÑƒÑ€Ñ‹. Ğ¡Ñ‚Ñ€ÑƒĞºÑ‚ÑƒÑ€Ğ° ÑĞ¾Ğ´ĞµÑ€Ğ¶Ğ¸Ñ‚ Ğ´Ğ²Ğ° Ğ¿Ğ¾Ğ»Ñ Ñ‚Ğ¸Ğ¿Ğ° int.
+Ğ’Ñ‚Ğ¾Ñ€Ğ°Ñ Ñ‡Ğ°ÑÑ‚ÑŒ ĞºĞ¾Ğ´Ğ° - Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ ÑƒĞºĞ°Ğ·Ğ°Ñ‚ĞµĞ»Ñ Ğ½Ğ° ÑÑ‚Ñ€ÑƒĞºÑ‚ÑƒÑ€Ñƒ. Ğ£ĞºĞ°Ğ·Ğ°Ñ‚ĞµĞ»ÑŒ Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·ÑƒĞµÑ‚ÑÑ Ğ´Ğ»Ñ Ğ¸Ğ·Ğ¼ĞµĞ½ĞµĞ½Ğ¸Ñ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ñ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚Ğ° Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ° ÑÑ‚Ñ€ÑƒĞºÑ‚ÑƒÑ€Ñ‹.
+Ğ¢Ñ€ĞµÑ‚ÑŒÑ Ñ‡Ğ°ÑÑ‚ÑŒ ĞºĞ¾Ğ´Ğ° - Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ° ÑÑ‚Ñ€ÑƒĞºÑ‚ÑƒÑ€. ĞœĞ°ÑÑĞ¸Ğ² Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·ÑƒĞµÑ‚ÑÑ Ğ´Ğ»Ñ Ñ…Ñ€Ğ°Ğ½ĞµĞ½Ğ¸Ñ Ğ´Ğ²ÑƒÑ… ÑĞºĞ·ĞµĞ¼Ğ¿Ğ»ÑÑ€Ğ¾Ğ² ÑÑ‚Ñ€ÑƒĞºÑ‚ÑƒÑ€Ñ‹.
